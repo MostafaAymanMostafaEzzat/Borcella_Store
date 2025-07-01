@@ -12,8 +12,8 @@ export default async function Products({
   className?: string;
 }) {
   return (
-    <div className="m-20 pb-20 ">
-      <div className={`flex gap-10 items-center justify-center flex-wrap ${className}`}>
+    <div className="m-20 pb-20  ">
+      <div className={`flex gap-10 items-center justify-center flex-wrap ${className} max-md:grid max-md:grid-cols-2 max-md:gap-4`}>
         {products.map((product) => (
           <Link
             key={product._id}
@@ -28,10 +28,10 @@ export default async function Products({
               className="max-h-36 object-cover" 
             />
             <div className="p-2">
-              <h2 className="font-semibold text-lg">{product.title}</h2>
-              <p className="text-slate-500">{product.category}</p>
+              <h2 className="font-semibold text-lg max-md:text-[0.8em]">{product.title}</h2>
+              <p className="text-slate-500 max-md:text-[0.6em]">{product.category}</p>
               <div className="flex justify-between items-center">
-                <div className="font-semibold text-lg">{`$${product.price}`}</div>
+                <div className="font-semibold text-lg max-md:text-[0.8em]">{`$${product.price}`}</div>
                 <HeartIcon productId={product._id} />
               </div>
             </div>

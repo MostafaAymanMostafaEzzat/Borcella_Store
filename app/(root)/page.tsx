@@ -12,7 +12,7 @@ export default async function Home() {
       <img src="/banner.png" alt="banner" className="w-full  " />
       <Collections />
       <div className="pb-16 ">
-        <h1 className="font-bold text-6xl text-center mb-16">Products</h1>
+        <h1 className="font-bold text-6xl text-center mb-16 max-md:text-3xl">Products</h1>
         {products && products.length > 0 ? (
           <Products products={products} />
         ) : (

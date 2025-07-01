@@ -25,7 +25,7 @@ export default function Navbar() {
 
   return (
     <div className="sticky top-0 flex items-center justify-between p-4 backdrop-blur-2xl  z-[1000] ">
-      <div>
+      <div onClick={() => router.push('/')} className="cursor-pointer">
         <img src="/logo.png" alt="logo" className="w-60" />
       </div>
 
@@ -40,17 +40,17 @@ export default function Navbar() {
           Order
         </Link>
       </div>
-      <div className=" outline-slate-600/30 hover:outline-blue-400 focus-within:outline-blue-400 outline-[1px] shadow rounded-lg  m-2 flex md:flex-auto max-w-80  p-2 justify-between items-center">
+      <div className=" outline-slate-600/30 hover:outline-blue-400 focus-within:outline-blue-400 outline-[1px] shadow rounded-lg  m-2 flex  max-w-80  p-2 justify-between items-center max-md:max-w-40 max-md:justify-start">
         <input
           type="text"
           placeholder="Search..."
-          className="focus:outline-blue-400 outline-none flex-auto"
+          className="focus:outline-blue-400 outline-none flex-auto max-md:w-20"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
         <SearchIcon className={`h-5 w-5 hover:text-blue-400 text-slate-500/60 ${query === "" ? 'pointer-events-none': null }` }  onClick={()=> {router.push(`/search/${query}`)}} />
       </div>
-      <div className="flex items-center justify-between space-x-4 ">
+      <div className="flex items-center justify-between space-x-4 max-md:text-lg ">
         <Link
           className="max-sm:hidden  group p-2 flex gap-2  border-slate-600/30 border-[1px] items-center rounded-lg hover:bg-slate-700 hover:text-white"
           href={"/cart"}
@@ -64,22 +64,35 @@ export default function Navbar() {
             onClick={() => setOpen((prev) => !open)}
           />
           {open && (
-            <div className="absolute top-8 flex flex-col gap-2 -left-[42px] shadow-xl p-2 ">
+            <div
+              className="absolute top-8 flex flex-col gap-2 -left-[42px] shadow-xl p-2 bg-white rounded-2xl border border-slate-600/20"
+              ref={el => {
+                console.log(el);
+              if (el) {
+                const handleClick = (e: MouseEvent) => {
+                  console.log(e.target)
+                if (!el.contains(e.target as Node)) setOpen(false);
+                };
+                document.addEventListener("mousedown", handleClick);
+                return () => document.removeEventListener("mousedown", handleClick);
+              }
+              }}
+            >
               <Link href="/" className=" hover:text-blue-600 px-4">
-                Home
+              Home
               </Link>
               <Link href="/wishlist" className=" hover:text-blue-600 px-4">
-                WishList
+              WishList
               </Link>
               <Link href="/order" className=" hover:text-blue-600 px-4">
-                Order
+              Order
               </Link>
               <Link
-                className="min-sm:hidden mx-2 group p-1 flex gap-2  border-slate-600/30 border-[1px] items-center justify-center rounded-lg hover:bg-slate-700 hover:text-white "
-                href={"/cart"}
+              className="min-sm:hidden mx-2 group p-1 flex gap-2  border-slate-600/30 border-[1px] items-center justify-center rounded-lg hover:bg-slate-700 hover:text-white "
+              href={"/cart"}
               >
-                <ShoppingCart className="h-3 w-3 group-hover:text-blue-600 " />
-                <span className="text-sm ">Cart {`(${cartItems.length})`}</span>
+              <ShoppingCart className="h-3 w-3 group-hover:text-blue-600 " />
+              <span className="text-sm ">Cart {`(${cartItems.length})`}</span>
               </Link>
             </div>
           )}
