@@ -32,6 +32,9 @@ export default function Card() {
 
   const handleClick = async ()=>{
       try {
+              if (!user) {
+        router.push("sign-in");
+      } else {
         console.log("[checkout_POST] - Initiating checkout process");
         setPending(true);
       
@@ -43,6 +46,7 @@ export default function Card() {
         const { sessionUrl } = res.data;
         setPending(true);
         router.push(sessionUrl);
+      }
       } catch (error) {
         setPending(false);
         console.log("[checkout_POST]", error);
