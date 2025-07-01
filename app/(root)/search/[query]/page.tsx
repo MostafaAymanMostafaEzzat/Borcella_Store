@@ -2,9 +2,9 @@ import Products from "@/components/Products";
 import axios from "axios";
 
 
-export default async function SearchPage({params} : {params: {query: string}}) {
+export default async function SearchPage({params} : {params:Promise< {query: string}>}) {
 // console.log("params", params.query);
-    const {query} = params;
+    const {query} = await params;
     const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/search/${query}`);
     const products = res.data as ProductType[] | [];
   return (

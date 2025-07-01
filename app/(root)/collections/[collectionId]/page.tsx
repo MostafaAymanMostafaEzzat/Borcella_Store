@@ -1,7 +1,8 @@
 
 
-export default async function CollectionPage({ params }: { params: { collectionId: string } }) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/collections/${params.collectionId}`);
+export default async function CollectionPage( { params } : { params: Promise<{ collectionId: string }> }) {
+  const  { collectionId} = await params;
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/collections/${collectionId}`);
   if (!res.ok) {
     throw new Error('Failed to fetch collection');
   }

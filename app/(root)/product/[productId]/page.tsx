@@ -7,13 +7,14 @@ import { Heart } from "lucide-react";
 export default async function ProductPage({
   params,
 }: {
-  params: { productId: string };
+  params: Promise<{ productId: string }>;
 }) {
+  const { productId } = await params;
   const FetchProducts = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/products/${params.productId}`
+    `${process.env.NEXT_PUBLIC_API_URL}/products/${productId}`
   );
   const FetchRelatedProducts = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/products/${params.productId}/related`
+    `${process.env.NEXT_PUBLIC_API_URL}/products/${productId}/related`
   );
 
   if (!FetchProducts.ok) {

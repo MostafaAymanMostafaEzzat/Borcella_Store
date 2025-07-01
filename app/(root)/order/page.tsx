@@ -9,6 +9,7 @@ export default async function OrderPage() {
     `${process.env.NEXT_PUBLIC_API_URL}/orders/customers/${userId}`
   );
   const Orders = res.data;
+  console.log("Orders", Orders[0]);
   return (
     <div className="flex flex-col p-10 mb-7 gap-5  ">
       <h1 className="text-2xl ">Your Orders :</h1>
