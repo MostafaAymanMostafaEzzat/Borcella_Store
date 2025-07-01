@@ -42,8 +42,7 @@ export default function Card() {
         const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`,{
             cartItems,
             customer
-        }, {
-          withCredentials: true,})
+        },)
         setPending(false);
         const { sessionUrl } = res.data;
         setPending(true);
