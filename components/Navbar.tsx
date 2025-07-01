@@ -24,7 +24,7 @@ export default function Navbar() {
  const { cartItems}= useCartStore()
 
   return (
-    <div className="sticky top-0 flex items-center justify-between p-4 backdrop-blur-2xl  z-[9999999999999999999999999999999999999] ">
+    <div className="sticky top-0 flex items-center justify-between p-4 backdrop-blur-2xl  z-[1000] ">
       <div>
         <img src="/logo.png" alt="logo" className="w-60" />
       </div>

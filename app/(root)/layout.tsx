@@ -29,7 +29,7 @@ export default function RootLayout({
       <body className="">
       <ClerkProvider>
         <Navbar />
-        <Toaster position="top-center" />
+        <Toaster position="top-center" toastOptions={ {className:"z-[10000000000] mt-15"}}  />
 
         {children}
         </ClerkProvider>
