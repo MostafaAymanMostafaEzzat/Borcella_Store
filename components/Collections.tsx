@@ -7,7 +7,7 @@ export default async function Collections() {
   const collections = res.data as CollectionType[] | undefined;
   console.log(res.data);
   return (
-    <div className="m-20 pb-10 h-full flex flex-col items-center">
+    <div className="m-20 pb-10 h-full flex flex-col items-center max-md:m-5">
       <h1 className="font-bold text-6xl text-center mb-8 max-md:text-3xl">Collections</h1>
       <div className="flex gap-10 items-center h-full justify-center flex-wrap max-md:grid max-md:grid-cols-2 max-md:gap-4">
         {!collections || collections.length === 0 ? (

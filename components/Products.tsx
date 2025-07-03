@@ -12,7 +12,7 @@ export default async function Products({
   className?: string;
 }) {
   return (
-    <div className="m-20 pb-20  ">
+    <div className="m-20 pb-20 max-md:m-0">  
       <div className={`flex gap-10 items-center justify-center flex-wrap ${className} max-md:grid max-md:grid-cols-2 max-md:gap-4`}>
         {products.map((product) => (
           <Link

@@ -26,14 +26,14 @@ export default async function ProductPage({
 
   return (
     <div className="m-5 pb-10 ">
-      <div className="grid grid-cols-6  gap-10 mx-80">
+      <div className="grid grid-cols-6  gap-10 mx-80 max-md:mx-0 max-md:gap-0">
         <ProductImages {...product} />
         <ProductInfo product={product} />
       </div>
-      <div className="m-20 pb-10">
-        <h1 className="font-bold text-3xl text-center mb-16">Related Products</h1>
+      <div className=" pb-10 " >
+        <h1 className="font-bold text-3xl text-center max-md:mt-16 mb-16">Related Products</h1>
         {relatedProducts && relatedProducts.length > 0 ? (
-          <Products products={relatedProducts} />
+          <Products products={relatedProducts}  />
         ) : (
           <p className="text-body-bold text-center mb-16 pb-16 text-slate-900 ">
             No Products found

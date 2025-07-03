@@ -57,7 +57,7 @@ export default function Card() {
       }
   }
   return (
-    <div className=" grid grid-cols-5 gap-4 p-4">
+    <div className=" grid grid-cols-5 gap-4 p-4 max-md:grid-cols-1 max-md:gap-2">
       <div className="col-span-3 bg-white p-4 rounded ">
         <h1 className="text-3xl font-semibold mb-8">Shopping Cart</h1>
         <div className="h-[0.5px] bg-slate-600/30 w-full mb-8" />
