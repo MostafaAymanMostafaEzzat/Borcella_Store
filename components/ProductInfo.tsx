@@ -14,8 +14,8 @@ export const ProductInfo = ({ product }: { product: ProductType }) => {
 
   return (
     <div className="col-span-2">
-      <h1 className="text-3xl font-bold mb-4 flex justify-between items-center">
-        {product.title} <HeartIcon productId={product._id} />
+      <h1 className="text-3xl max-md:text-2xl font-bold mb-4 flex justify-between items-center ">
+        {product.title} <HeartIcon productId={product._id} className="max-md:mt-2" />
       </h1>
       <p className="text-lg mb-4 font-semibold ">
         <span className="text-slate-400 ">Category: </span>
@@ -35,7 +35,7 @@ export const ProductInfo = ({ product }: { product: ProductType }) => {
       <div className="text-lg mb-4 font-semibold ">
         <span className="text-slate-400 ">Quantity: </span>
         <br />
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2 justify-center">
                 <button className="cursor-pointer" onClick={() => setQuantity((prev) => Math.max(prev - 1, 1))}>
           <MinusCircle className="h-6 w-6" />
         </button>

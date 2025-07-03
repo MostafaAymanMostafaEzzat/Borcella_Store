@@ -16,7 +16,7 @@ export const ProductImages = (product:ProductType) => {
           />
           <div>
             {product.media.length > 0 && (
-              <div className="flex gap-4 overflow-x-auto">
+              <div className="flex gap-4 overflow-x-auto max-md:max-w-40 pb-4">
 
                 {product.media.map((image: string, index: number) => (
                   <img

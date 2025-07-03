@@ -25,7 +25,7 @@ export default async function ProductPage({
   const relatedProducts = (await FetchRelatedProducts.json() as ProductType[] )?? [];
 
   return (
-    <div className="m-5 pb-10 ">
+    <div className="m-5 pb-10 max-md:m-3 ">
       <div className="grid grid-cols-6  gap-10 mx-80 max-md:mx-0 max-md:gap-0">
         <ProductImages {...product} />
         <ProductInfo product={product} />

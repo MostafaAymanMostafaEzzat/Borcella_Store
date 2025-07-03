@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 
-export default function HeartIcon({ isFilled = false, productId }: { isFilled?: boolean , productId:string}) {
+export default function HeartIcon({ isFilled = false, productId , className}: { isFilled?: boolean , productId:string , className?: string }) {
 const {user} = useUser();
 const route = useRouter();
 const [isLiked, setIsLiked] = useState(false);
@@ -55,6 +55,6 @@ const handleClick = async (event: React.MouseEvent<SVGSVGElement, MouseEvent>) =
     }}
 
   return (
-    <Heart className="h-6 w-6 z-50" fill={`${isLiked ? "red" : "white"}`} onClick={handleClick} />
+    <Heart className={`h-6 w-6 z-50 ${className} `} fill={`${isLiked ? "red" : "white"}`} onClick={handleClick} />
   );
 }
