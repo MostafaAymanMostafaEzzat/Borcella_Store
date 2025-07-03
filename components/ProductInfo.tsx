@@ -15,7 +15,7 @@ export const ProductInfo = ({ product }: { product: ProductType }) => {
   return (
     <div className="col-span-2">
       <h1 className="text-3xl max-md:text-2xl font-bold mb-4 flex justify-between items-center ">
-        {product.title} <HeartIcon productId={product._id} className="max-md:mt-2" />
+        {product.title} <HeartIcon productId={product._id}  />
       </h1>
       <p className="text-lg mb-4 font-semibold ">
         <span className="text-slate-400 ">Category: </span>
